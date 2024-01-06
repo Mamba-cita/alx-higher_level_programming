@@ -1,11 +1,10 @@
 #!/usr/bin/python3
-# 4-new_in_list.py
 
-def new_in_list(my_list, idx, element):
-    """Replace an element in a copied list at a specific position."""
-    if idx < 0 or idx > (len(my_list) - 1):
-        return (my_list)
+def print_reversed_list_integer(my_list=[]):
+    for i in range(len(my_list) - 1, -1, -1):
+        print("{:d}".format(my_list[i]))
 
-    copy = [x for x in my_list]
-    copy[idx] = element
-    return (copy)
+if __name__ == "__main__":
+    my_list = [1, 2, 3, 4, 5]
+    print_reversed_list_integer(my_list)
+
