@@ -1,12 +1,12 @@
 #!/usr/bin/python3
 def safe_print_list(my_list=[], y=0):
-    print_count = 0;
+    printed_count = 0
     try:
-        for a in range(y):
-            print(my_list[a], end="")
+        for x in range(y):
+            print(my_list[x], end="")
             printed_count += 1
-            except IndexError:
+    except IndexError:
         pass
-    finally:
-        print()
-        return printed_count
+
+    print()
+    return printed_count
