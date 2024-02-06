@@ -1,14 +1,24 @@
 #!/usr/bin/python3
+""" Represents a student with first name, last name, and age"""
+
 
 class Student:
-    ''' Student class '''
+    """
+    Represents a student with first name, last name, and age.
+    """
 
     def __init__(self, first_name, last_name, age):
-        ''' Constructor method '''
+        """Initializes a new student
+
+        Args:
+            first_name (str): First name of student
+            last_name (str): Last name of the student
+            age (int): Age of the student
+        """
         self.first_name = first_name
         self.last_name = last_name
         self.age = age
 
     def to_json(self):
-        ''' Method that returns directory description '''
-        return self.__dict__.copy()
+        """Get a dictionary representation of the student"""
+        return self.__dict__
