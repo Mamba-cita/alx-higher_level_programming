@@ -1,9 +1,4 @@
 #!/usr/bin/python3
-'''
-file: 11-student.py
-Classes:
--> Student
-'''
 
 
 class Student:
