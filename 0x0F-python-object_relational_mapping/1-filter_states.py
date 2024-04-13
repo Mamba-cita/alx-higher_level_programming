@@ -1,35 +1,28 @@
 #!/usr/bin/python3
+'''
+lists all states starting with the letter N
+'''
 
-"""Script lists all states with a name starting with 'N' from
-the database `hbtn_0e_0_usa`"""
+import MySQLdb
+import sys
 
-if __name__ == "__main__":
-    import sys
-    import MySQLdb
-
-    username, password, database_name = sys.argv[1:]
-
-    myDB = MySQLdb.connect(
-        host="localhost",
-        user=username,
-        password=password,
-        database=database_name,
+if __name__ == '__main__':
+    db = MySQLdb.connect(
+        user=sys.argv[1],
+        passwd=sys.argv[2],
+        db=sys.argv[3],
         port=3306,
-    )
+        host='localhost')
 
-    cursor = myDB.cursor()
-    cursor.execute(
-        """
-        SELECT * FROM states
-        WHERE name LIKE BINARY 'N%'
-        ORDER BY states.id;
-        """
-    )
+    cursor = db.cursor()
+    cursor.execute("SELECT * \
+                    FROM states \
+                    WHERE CONVERT(`name` USING Latin1) \
+                    COLLATE Latin1_General_CS \
+                    LIKE 'N%';")
 
     states = cursor.fetchall()
-
-    for row in states:
-        print(row)
-
+    for state in states:
+        print(state)
     cursor.close()
-    myDB.close()
+    db.close()
