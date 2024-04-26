@@ -10,4 +10,3 @@ if __name__ == '__main__':
         print(r.json().get('id'))
     except ValueError:
         print('Not a valid JSON')
-
