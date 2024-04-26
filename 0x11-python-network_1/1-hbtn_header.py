@@ -6,4 +6,3 @@ from sys import argv
 if len(argv) > 1:
     with urllib.request.urlopen(argv[1]) as response:
         print(response.getheader("X-Request-Id"))
-
